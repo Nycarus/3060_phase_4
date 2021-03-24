@@ -26,12 +26,29 @@ public class MasterBankAccountData {
     }
 
     public void dailyTransactions(MasterBankAccountData data) {
+
+       
        if(data.studentPlan== true){
+          //checks to see if account can go negative
+          if(data.balance >= (float)(data.totalTransactions*0.05)){
           data.balance=data.balance - (float)(data.totalTransactions*0.05);
+          }
+          else{
+            System.out.println("ERROR: Account cannot go below 0 "
+            +" Transactions Fee Error Account "+ data.name + data.number);
+          }
 
        }
        else{
-        data.balance=data.balance - (float)(data.totalTransactions*0.10);
+        if(data.balance >= (float)(data.totalTransactions*0.10)){
+              //checks to see if account can go negative
+            data.balance=data.balance - (float)(data.totalTransactions*0.10);
+            }
+            else{
+                System.out.println("ERROR: Account cannot go below 0 "
+                +" Transactions Fee Error Account "+ data.name + data.number);
+            }
+  
        }
 
     }

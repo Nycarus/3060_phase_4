@@ -1,7 +1,7 @@
 package main.java.masterbank;
 
 public class MasterBankAccountData {
-    int number = 0; // constraint of unique bank account
+    int number ; // constraint of unique bank account
     String name;
     String status;
     float balance;

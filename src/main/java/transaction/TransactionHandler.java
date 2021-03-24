@@ -5,8 +5,16 @@ import java.util.List;
 public class TransactionHandler {
     private List<TransactionData> transactions;
 
-    TransactionHandler() {
-        
+    TransactionHandler(String file) {
+        /**
+         * TransactoinHandler
+         *
+         * Constructor, currently initializes and stores transaction data from the previous day.
+         *
+         *
+         * @arg file The path to the past day's Merged Bank Account Transaction File, to initialize the Transaction Data
+         */
+        readFile(file);
     }
 
     public List<TransactionData> getTransactions() {
@@ -30,7 +38,7 @@ public class TransactionHandler {
             String line = null;
             while ((line = in.readLine()) != null) {
                 transactions.append(new TransactionData(Integer.valueOf(line[0:2]), 
-                                                        line[3:23], //TODO: Handle whitespace trimming properly
+                                                        line[3:23].trim(), // Might need tweaking depending on how we want to treat left-trailing whitespace
                                                         Integer.valueOf(line[24:29]),
                                                         Float.valueOf(line[30:38]),
                                                         line[39:41]);
@@ -38,6 +46,8 @@ public class TransactionHandler {
 
         } catch (IOException e) {
             System.err.format("IOException: %s%n", x);
+        } finally {
+            in.close();
         }
     }
 }

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.List;
 
+//Reading old banking account and writing new master accounts
 public class MasterBankAccountHandler {
     private List<MasterBankAccountData> accounts;
 
@@ -21,7 +22,8 @@ public class MasterBankAccountHandler {
     public MasterBankAccountData findAccount() {
         return null;
     }
-
+    
+    //Reading in banking old master and merge bank accounts
     public void readFile(String file) {
     	try{
     		File inMaster = new File(file);
@@ -41,7 +43,8 @@ public class MasterBankAccountHandler {
     		e.printStackTrace();
     	}	
     }
-
+    
+    //Writing to new current and master account files
     public void writeFile(String file) {
     	try {
     	      FileWriter writer = new FileWriter(file);

@@ -1,7 +1,7 @@
 package main.java.masterbank;
 
 public class MasterBankAccountData {
-    private static int number = 0; // constraint of unique bank account
+    int number = 0; // constraint of unique bank account
     String name;
     String status;
     float balance;
@@ -13,11 +13,11 @@ public class MasterBankAccountData {
 
     
     MasterBankAccountData() { // Test without file
-        number++;
+      
     }
 
     MasterBankAccountData(int number, String name, String status, float balance, int totalTransactions,boolean studentPlan) {
-        number++;    
+           
         this.number = number;
         this.name = name;
         this.status = status;

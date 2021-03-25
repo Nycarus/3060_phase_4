@@ -27,7 +27,6 @@ public class MasterBankAccountData {
 
     public void dailyTransactions(MasterBankAccountData data) {
 
-       
        if(data.studentPlan== true){
           //checks to see if account can go negative
           if(data.balance >= (float)(data.totalTransactions*0.05)){

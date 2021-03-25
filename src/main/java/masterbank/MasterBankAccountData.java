@@ -48,16 +48,22 @@ public class MasterBankAccountData {
                 System.out.println("ERROR: Account cannot go below 0 "
                 +" Transactions Fee Error Account "+ data.name + data.number);
             }
-  
        }
-
     }
 
     public String toString(){
         return this.number +" "+this.name+" "+this.status+" "+this.balance+" "+this.totalTransactions+" ";
     }
 
+    public float getBalance() {
+      return this.balance;
+    }
 
+    public void addBalance(float funds) {
+      this.balance += funds;
+    }
 
-
+    public Boolean getStudentPlan() {
+      return this.studentPlan;
+    }
 }

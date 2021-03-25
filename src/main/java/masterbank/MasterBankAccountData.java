@@ -54,6 +54,10 @@ public class MasterBankAccountData {
 
     }
 
+    public String toString(){
+        return this.number +" "+this.name+" "+this.status+" "+this.balance+" "+this.totalTransactions+" ";
+    }
+
 
 
 

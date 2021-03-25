@@ -5,7 +5,7 @@ import java.util.List;
 public class TransactionHandler {
     private List<TransactionData> transactions;
 
-    TransactionHandler() {
+    public TransactionHandler() {
         /**
          * TransactionHandler
          *

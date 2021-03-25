@@ -57,6 +57,9 @@ public class MasterBankAccountData {
         return this.number +" "+this.name+" "+this.status+" "+this.balance+" "+this.totalTransactions+" ";
     }
 
+    public float getBalance() {
+      return this.balance;
+    }
 
 
 

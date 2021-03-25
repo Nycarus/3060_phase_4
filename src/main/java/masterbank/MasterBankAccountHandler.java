@@ -10,7 +10,7 @@ import java.util.List;
 public class MasterBankAccountHandler {
     private List<MasterBankAccountData> accounts;
 
-    public MasterBankAccountHandler(){
+    MasterBankAccountHandler(){
         
     }
 

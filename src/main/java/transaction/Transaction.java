@@ -13,32 +13,32 @@ public final class Transaction {
 
     private static void startTransaction(MasterBankAccountData account, TransactionData transaction) {
         switch (transaction.code){
-            case "01":
+            case 1:
                 break;
-            case "02":
+            case 2:
                 break;
-            case "03":
+            case 3:
                 changeBalance(account, transaction.funds, transaction.miscellaneous);
                 break;
-            case "04":
+            case 4:
                 changeBalance(account, transaction.funds, transaction.miscellaneous);
                 break;
-            case "05":
+            case 5:
                 changeBalance(account, transaction.funds, transaction.miscellaneous);
                 break;
-            case "06":
+            case 6:
                 changeBalance(account, transaction.funds, transaction.miscellaneous);
                 break;
-            case "07":
+            case 7:
                 create();
                 break;
-            case "08":
+            case 8:
                 delete();
                 break;
-            case "09":
+            case 9:
                 disable();
                 break;
-            case "10":
+            case 10:
                 changeplan();
                 break;
         }

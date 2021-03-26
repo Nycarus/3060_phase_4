@@ -49,8 +49,14 @@ public class MasterBankAccountHandler {
 	 *
 	 * @return TODO: [DESCRIPTION HERE!!!]
 	 */
-    public MasterBankAccountData findAccount() {
-        return null;
+    public MasterBankAccountData findAccount(String name, int number) {
+        for (MasterBankAccountData account : this.accounts) {
+			if (account.name == name && account.number == number) {
+				return account;
+			}
+		}
+
+		return null;
     }
 
 	/**

@@ -9,7 +9,7 @@ import java.util.List;
  *
  * TODO: [DESCRIPTION HERE!!!]
  */
-public final class Transaction {
+public final class TransactionHelper {
     /**
      * updateAccounts
      *
@@ -20,7 +20,7 @@ public final class Transaction {
      */
     public static void updateAccounts(MasterBankAccountHandler masterBankAccountHandler, TransactionHandler transactionHandler) {
         for (TransactionData transaction : transactionHandler.getTransactions()) {
-            startTransaction(masterBankAccountHandler, transaction);
+            applyTransaction(masterBankAccountHandler, transaction);
         }
     }
 
@@ -32,39 +32,44 @@ public final class Transaction {
      * @param accountHandler The MasterBankAccountHandler containing the account to apply the transactions to.
      * @param transaction The transaction to be performed.
      */
-    private static void startTransaction(MasterBankAccountHandler accountHandler, TransactionData transaction) {
+    private static void applyTransaction(MasterBankAccountHandler accountHandler, TransactionData transaction) {
         if (transaction.code != 5) { // If the transaction isn't create
-            MasterBankAccountData account = accountHandler.findAccount();
-            switch (transaction.code){
-                case 1: //Withdraw
-                    if (!changeBalance(account, transaction.funds, "CR")) {
-                        System.out.println("ERROR: Constraint failed, balance would be negative for withdrawal transaction "+transaction.toString());
-                    }
-                    break;
-                case 2: //Transfer
-                    if (!changeBalance(account, transaction.funds, transaction.miscellaneous)) {
-                        System.out.println("ERROR: Constraint failed, balance would be negative for transfer transaction "+transaction.toString());
-                    }
-                    break;
-                case 3: //Paybill
-                    if (!changeBalance(account, transaction.funds, "CR")) {
-                        System.out.println("ERROR: Constraint failed, balance would be negative for paybill transaction "+transaction.toString());
-                    }
-                    break;
-                case 4: //Deposit
-                    if (!changeBalance(account, transaction.funds, transaction.miscellaneous)) {
-                        System.out.println("ERROR: Constraint failed, balance would be negative for deposit transaction "+transaction.toString());
-                    }
-                    break;
-                case 6:
-                    delete(accountHandler, account);
-                    break;
-                case 7:
-                    disable(account);
-                    break;
-                case 8:
-                    changeplan(account);
-                    break;
+            MasterBankAccountData account = accountHandler.findAccount(transaction.name, transaction.number);
+
+            if (account != null) {
+                switch (transaction.code){
+                    case 1: //Withdraw
+                        if (!changeBalance(account, transaction.funds, "CR")) {
+                            System.out.println("ERROR: Constraint failed, balance would be negative for withdrawal transaction "+transaction.toString());
+                        }
+                        break;
+                    case 2: //Transfer
+                        if (!changeBalance(account, transaction.funds, transaction.miscellaneous)) {
+                            System.out.println("ERROR: Constraint failed, balance would be negative for transfer transaction "+transaction.toString());
+                        }
+                        break;
+                    case 3: //Paybill
+                        if (!changeBalance(account, transaction.funds, "CR")) {
+                            System.out.println("ERROR: Constraint failed, balance would be negative for paybill transaction "+transaction.toString());
+                        }
+                        break;
+                    case 4: //Deposit
+                        if (!changeBalance(account, transaction.funds, transaction.miscellaneous)) {
+                            System.out.println("ERROR: Constraint failed, balance would be negative for deposit transaction "+transaction.toString());
+                        }
+                        break;
+                    case 6:
+                        delete(accountHandler, account);
+                        break;
+                    case 7:
+                        disable(account);
+                        break;
+                    case 8:
+                        changeplan(account);
+                        break;
+                }
+            } else {
+                // TODO: add error statement of account not being found
             }
         } else {
             create(accountHandler, transaction);

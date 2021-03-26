@@ -3,8 +3,6 @@ package main.java.backend;
 import main.java.masterbank.*;
 import main.java.transaction.*;
 
-import java.util.List;
-
 /**
  * Main
  *
@@ -25,7 +23,7 @@ public class Main {
         transactionHandler.readFile(transactionInputFile);
 
         // update bank accounts
-        //Transaction.updateAccounts(masterBankAccountHandler, transactionHandler);
+        TransactionHelper.updateAccounts(masterBankAccountHandler, transactionHandler);
 
         // Write to Files
         masterBankAccountHandler.writeFile(masterBankAccountOutputFile);

@@ -81,7 +81,6 @@ public class MasterBankAccountHandler {
     
     //Reading in banking old master and merge bank accounts
     //Sample account format 12345 John Doe             A 00000000 0001 1
-
 	/**
 	 * readFile
 	 *
@@ -100,7 +99,7 @@ public class MasterBankAccountHandler {
         		
         		
         		MasterBankAccountData temp = 
-        				new MasterBankAccountData(Integer.parseInt(account.substring(0, 5)), account.substring(6,27), account.substring(27,28), Float.parseFloat(account.substring(29,36)), Integer.parseInt(account.substring(38,42)), Boolean.parseBoolean(account.substring(43,47)));
+        				new MasterBankAccountData(Integer.parseInt(account.substring(0, 5)), account.substring(6,27), account.substring(27,28), Float.parseFloat(account.substring(29,36)), Integer.parseInt(account.substring(38,42)), false);
         		//Testing Purposes       		
         		System.out.println(temp);
         		accounts.add(temp);

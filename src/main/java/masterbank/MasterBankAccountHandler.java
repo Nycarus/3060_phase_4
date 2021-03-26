@@ -39,7 +39,7 @@ public class MasterBankAccountHandler {
 	 *
 	 * Set the accounts list equal to a target object
 	 *
-	 * @param target 
+	 * @param target The new list to use for the handler's account data.
 	 */
 	public void setAccounts(List<MasterBankAccountData> target) {
     	this.accounts = target;

@@ -5,16 +5,17 @@ import main.java.masterbank.*;
 import java.util.List;
 
 /**
- * Transaction
+ * TransactionHelper
  *
- *	class to apply transactions on masterBankAccounts
+ *	A class which contains various methods to apply the transactions from a given TransactionHandler
+ *	to the accounts in a given MasterBankAccountHandler.
  *
  */
 public final class TransactionHelper {
     /**
      * updateAccounts
      *
-     * method which applies all the transactions to each account using applyTransaction()
+     * Applies all the transactions to the relevant account using applyTransaction()
      * 
      * @param masterBankAccountHandler the class with methods to process MasterBankAccountData
      * @param transactionHandler applies transaction to accounts
@@ -26,7 +27,7 @@ public final class TransactionHelper {
     }
 
     /**
-     * startTransaction
+     * applyTransaction
      *
      * Encompasses every other transaction type, enacting changes on a given account within the accountHandler unless a constraint is failed.
      *
@@ -145,7 +146,7 @@ public final class TransactionHelper {
     /**
      * delete
      *
-     * applies delete to the current account being processed
+     * Applies the delete transaction to the current account being processed
      *
      * @param handler The MasterBankAccountHandler containing the account to apply the transactions to.
      * @param account current account being processed to be deleted
@@ -159,7 +160,8 @@ public final class TransactionHelper {
     /**
      * disable
      *
-     * changes status of current account being processed
+     * Applies the disable transaction to a given account,
+     * toggling the account’s disable status between active and disabled.
      *
      * @param account current account being processed to be disabled
      */
@@ -170,7 +172,8 @@ public final class TransactionHelper {
     /**
      * changeplan
      *
-     * change current plan of account to either student or non-student
+     * Applies the changeplan transaction to a given account,
+     * toggling the account’s plan between student and non-student.
      *
      * @param account current account being processed for a changeplan
      */

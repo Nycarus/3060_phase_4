@@ -57,6 +57,9 @@ public class MasterBankAccountData {
         }
         return this.number +" "+ this.name +" "+ this.status +" "+ this.balance +" "+ this.studentPlan;
     }
+    public String toString() {
+                return String.format("%05d",this.number) +" "+ this.name +" "+ this.status +" "+ String.format("%08d",(int)this.balance) +" "+ String.format("%04d",this.totalTransactions) + " " + this.studentPlan;
+    }
 
     /** getBalance
      *

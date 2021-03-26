@@ -20,10 +20,10 @@ public class Main {
 
         // Read Files
         masterBankAccountHandler.readFile(masterBankAccountInputFile);
-        transactionHandler.readFile(transactionInputFile);
+        //transactionHandler.readFile(transactionInputFile);
 
         // update bank accounts
-        TransactionHelper.updateAccounts(masterBankAccountHandler, transactionHandler);
+        //TransactionHelper.updateAccounts(masterBankAccountHandler, transactionHandler);
 
         // Write to Files
         masterBankAccountHandler.writeFile(masterBankAccountOutputFile);

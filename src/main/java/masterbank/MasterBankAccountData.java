@@ -14,10 +14,6 @@ public class MasterBankAccountData {
     int totalTransactions;
     boolean studentPlan;
 
-    MasterBankAccountData() { // Test without file
-
-    }
-
     /**
      * MasterBankAccountData
      *

@@ -6,42 +6,40 @@ public final class Transaction {
 
     public static void updateAccounts(MasterBankAccountHandler masterBankAccountHandler, TransactionHandler transactionHandler) {
         for (TransactionData transaction : transactionHandler.getTransactions()) {
-            MasterBankAccountData account = masterBankAccountHandler.findAccount();
-            startTransaction(account, transaction);
+            startTransaction(masterBankAccountHandler, transaction);
         }
     }
 
-    private static void startTransaction(MasterBankAccountData account, TransactionData transaction) {
-        switch (transaction.code){
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                changeBalance(account, transaction.funds, transaction.miscellaneous);
-                break;
-            case 4:
-                changeBalance(account, transaction.funds, transaction.miscellaneous);
-                break;
-            case 5:
-                changeBalance(account, transaction.funds, transaction.miscellaneous);
-                break;
-            case 6:
-                changeBalance(account, transaction.funds, transaction.miscellaneous);
-                break;
-            case 7:
-                create();
-                break;
-            case 8:
-                delete();
-                break;
-            case 9:
-                disable();
-                break;
-            case 10:
-                changeplan();
-                break;
+    private static void startTransaction(MasterBankAccountHandler accountHandler, TransactionData transaction) {
+        if (transaction.code != 5) { // If the transaction isn't create
+            MasterBankAccountData account = accountHandler.findAccount();
+            switch (transaction.code){
+                case 1: //Withdraw
+                    changeBalance(account, transaction.funds, "CR");
+                    break;
+                case 2: //Transfer
+                    changeBalance(account, transaction.funds, transaction.miscellaneous);
+                    break;
+                case 3: //Paybill
+                    changeBalance(account, transaction.funds, "CR");
+                    break;
+                case 4: //Deposit
+                    changeBalance(account, transaction.funds, transaction.miscellaneous);
+                    break;
+                case 6:
+                    delete();
+                    break;
+                case 7:
+                    disable();
+                    break;
+                case 8:
+                    changeplan();
+                    break;
+            }
+        } else {
+            create(accountHandler, transaction);
         }
+
     }
 
     private static void changeBalance(MasterBankAccountData account, float funds, String miscellaneous) {
@@ -60,6 +58,8 @@ public final class Transaction {
 
         if (!isBalanceZero(account.getBalance(), funds)) {
             account.addBalance(funds);
+        } else {
+            //ERROR
         }
     }
 
@@ -67,8 +67,12 @@ public final class Transaction {
         return balance + funds <= 0;
     }
 
-    private static void create() {
-
+    private static void create(MasterBankAccountHandler handler, TransactionData data) {
+        if (handler.exists(data.number)) {
+            System.out.println("ERROR: Constraint failed, account #"+data.number+" already exists. Transaction "+data.toString());
+        }
+        MasterBankAccountData newAccount = new MasterBankAccountData(data.number, data.name, "A", data.funds, 0, false);
+        handler.getAccounts().add(newAccount);
     }
 
     private static void delete() {

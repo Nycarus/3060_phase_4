@@ -12,7 +12,7 @@ public class MasterBankAccountData {
 
     }
 
-    MasterBankAccountData(int number, String name, String status, float balance, int totalTransactions, boolean studentPlan) {
+    public MasterBankAccountData(int number, String name, String status, float balance, int totalTransactions, boolean studentPlan) {
 
         this.number = number;
         this.name = name;

@@ -18,4 +18,9 @@ public class TransactionData {
         this.funds = funds;
         this.miscellaneous = miscellaneous;
     }
+
+    public String toString() {
+        return String.valueOf(this.code) +" "+ this.name +" "+ String.valueOf(this.number)
+                +" "+ String.valueOf(this.funds) +" "+ this.miscellaneous;
+    }
 }

@@ -22,6 +22,18 @@ public class MasterBankAccountHandler {
     public MasterBankAccountData findAccount() {
         return null;
     }
+
+    // A simple check to see if the account ID is present already in accounts, used to enforce the duplicate ID constraint
+    public boolean exists(int accountID) {
+    	for (MasterBankAccountData account : this.accounts) {
+    		if (accountID == account.number) {
+    			return true;
+			}
+		}
+
+    	//for loop exhausted, therefore ID not found
+    	return false;
+	}
     
     //Reading in banking old master and merge bank accounts
     

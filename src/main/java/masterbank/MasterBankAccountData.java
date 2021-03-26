@@ -49,12 +49,9 @@ public class MasterBankAccountData {
      */
     public String toString(boolean transactionOutput) {
         if (transactionOutput) {
-            return this.number + " " + this.name + " " + this.status + " " + this.balance + " " + this.totalTransactions + " " + this.studentPlan;
+            return String.format("%05d",this.number) +" "+ this.name +" "+ this.status +" "+ String.format("%08d",(int)this.balance) +" "+ String.format("%04d",this.totalTransactions);
         }
-        return this.number +" "+ this.name +" "+ this.status +" "+ this.balance +" "+ this.studentPlan;
-    }
-    public String toString() {
-                return String.format("%05d",this.number) +" "+ this.name +" "+ this.status +" "+ String.format("%08d",(int)this.balance) +" "+ String.format("%04d",this.totalTransactions) + " " + this.studentPlan;
+        return String.format("%05d",this.number) +" "+ this.name +" "+ this.status +" "+ String.format("%08d",(int)this.balance);
     }
 
     /** getBalance

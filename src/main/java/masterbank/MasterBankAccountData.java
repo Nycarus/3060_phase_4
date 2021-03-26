@@ -3,10 +3,11 @@ package main.java.masterbank;
 /**
  * MasterBankAccountData
  *
- * TODO: [DESCRIPTION HERE!!!]
+ * class to store previous/current/future bank account information
+ * 
  */
 public class MasterBankAccountData {
-    int number; // constraint of unique bank account
+    int number; 
     String name;
     String status;
     float balance;
@@ -20,14 +21,14 @@ public class MasterBankAccountData {
     /**
      * MasterBankAccountData
      *
-     * TODO: [DESCRIPTION HERE!!!]
+     * 
      *
-     * @param number TODO: [DESCRIPTION HERE!!!]
-     * @param name TODO: [DESCRIPTION HERE!!!]
-     * @param status TODO: [DESCRIPTION HERE!!!]
-     * @param balance TODO: [DESCRIPTION HERE!!!]
-     * @param totalTransactions TODO: [DESCRIPTION HERE!!!]
-     * @param studentPlan TODO: [DESCRIPTION HERE!!!]
+     * @param number Bank account number
+     * @param name name of client
+     * @param status Status of account
+     * @param balance  Current Amount in account
+     * @param totalTransactions transactions summed over time
+     *
      */
     public MasterBankAccountData(int number, String name, String status, float balance, int totalTransactions, boolean studentPlan) {
 
@@ -39,43 +40,16 @@ public class MasterBankAccountData {
         this.studentPlan = studentPlan;
     }
 
-    /**
-     * dailyTransactions
-     *
-     * TODO: [DESCRIPTION HERE!!!]
-     *
-     * @param data TODO: [DESCRIPTION HERE!!!]
-     */ //WARNING: POSSIBLY DEPRECATED/USELESS, REVIEW AND CONSIDER REMOVING ALTOGETHER
-    public void dailyTransactions(MasterBankAccountData data) {
-
-        if (data.studentPlan) {
-            //checks to see if account can go negative
-            if (data.balance >= (float) (data.totalTransactions * 0.05)) {
-                data.balance = data.balance - (float) (data.totalTransactions * 0.05);
-            } else {
-                System.out.println("ERROR: Account cannot go below 0 "
-                        + " Transactions Fee Error Account " + data.name + data.number);
-            }
-
-        } else {
-            if (data.balance >= (float) (data.totalTransactions * 0.10)) {
-                //checks to see if account can go negative
-                data.balance = data.balance - (float) (data.totalTransactions * 0.10);
-            } else {
-                System.out.println("ERROR: Account cannot go below 0 "
-                        + " Transactions Fee Error Account " + data.name + data.number);
-            }
-        }
-    }
+  
 
     /**
      * toString
      *
-     * TODO: [DESCRIPTION HERE!!!]
+     * Get results of bank account transaction
      *
      * @param transactionOutput True if the transaction count should be returned (for the purposes of Master Bank Account
      *                          File output), false otherwise.
-     * @return The string value of
+     * @return The string value of bank account values
      */
     public String toString(boolean transactionOutput) {
         if (transactionOutput) {
@@ -86,9 +60,9 @@ public class MasterBankAccountData {
 
     /** getBalance
      *
-     * TODO: [DESCRIPTION HERE!!!]
+     * return account balance
      *
-     * @return TODO: [DESCRIPTION HERE!!!]
+     * @return return balance
      */
     public float getBalance() {
         return this.balance;
@@ -97,29 +71,19 @@ public class MasterBankAccountData {
     /**
      * addBalance
      *
-     * TODO: [DESCRIPTION HERE!!!]
+     * add funds to account balance
      *
-     * @param funds TODO: [DESCRIPTION HERE!!!]
+     * @param funds updates new balance
      */
     public void addBalance(float funds) {
         this.balance += funds;
     }
 
-    /**
-     * getStudentPlan
-     *
-     * TODO: [DESCRIPTION HERE!!!]
-     *
-     * @return TODO: [DESCRIPTION HERE!!!]
-     */
-    public boolean getStudentPlan() {
-        return this.studentPlan;
-    }
-
+   
     /**
      * toggleStatus
      *
-     * TODO: [DESCRIPTION HERE!!!]
+     * updates status for bank account
      */
     public void toggleStatus() {
         if (this.status == "A") {
@@ -132,7 +96,7 @@ public class MasterBankAccountData {
     /**
      * togglePlan
      *
-     * TODO: [DESCRIPTION HERE!!!]
+     * inverts user current student plan check
      */
     public void togglePlan() {
         this.studentPlan = !this.studentPlan;

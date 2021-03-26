@@ -97,9 +97,9 @@ public final class TransactionHelper {
         }
 
         if (account.getStudentPlan()) {
-            funds -= 0.1;
-        } else {
             funds -= 0.05;
+        } else {
+            funds -= 0.1;
         }
 
         if (!isBalanceZero(account.getBalance(), funds)) {

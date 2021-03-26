@@ -12,21 +12,37 @@ public final class Transaction {
         }
     }
 
+    /**
+     * startTransaction
+     *
+     * Encompasses every other transaction type, enacting changes on a given account within the accountHandler unless a constraint is failed.
+     *
+     * @param accountHandler The MasterBankAccountHandler containing the account to apply the transactions to.
+     * @param transaction The transaction to be performed.
+     */
     private static void startTransaction(MasterBankAccountHandler accountHandler, TransactionData transaction) {
         if (transaction.code != 5) { // If the transaction isn't create
             MasterBankAccountData account = accountHandler.findAccount();
             switch (transaction.code){
                 case 1: //Withdraw
-                    changeBalance(account, transaction.funds, "CR");
+                    if (!changeBalance(account, transaction.funds, "CR")) {
+                        System.out.println("ERROR: Constraint failed, balance would be negative for withdrawal transaction "+transaction.toString());
+                    }
                     break;
                 case 2: //Transfer
-                    changeBalance(account, transaction.funds, transaction.miscellaneous);
+                    if (!changeBalance(account, transaction.funds, transaction.miscellaneous)) {
+                        System.out.println("ERROR: Constraint failed, balance would be negative for transfer transaction "+transaction.toString());
+                    }
                     break;
                 case 3: //Paybill
-                    changeBalance(account, transaction.funds, "CR");
+                    if (!changeBalance(account, transaction.funds, "CR")) {
+                        System.out.println("ERROR: Constraint failed, balance would be negative for paybill transaction "+transaction.toString());
+                    }
                     break;
                 case 4: //Deposit
-                    changeBalance(account, transaction.funds, transaction.miscellaneous);
+                    if (!changeBalance(account, transaction.funds, transaction.miscellaneous)) {
+                        System.out.println("ERROR: Constraint failed, balance would be negative for deposit transaction "+transaction.toString());
+                    }
                     break;
                 case 6:
                     delete(accountHandler, account);
@@ -44,7 +60,18 @@ public final class Transaction {
 
     }
 
-    private static void changeBalance(MasterBankAccountData account, float funds, String miscellaneous) {
+    /**
+     * changeBalance
+     *
+     * Multi-purpose function used to facilitate account balance changes for Withdraw, Transfer, Paybill, and Deposit.
+     *
+     * @param account The account in question to have its balance changed
+     * @param funds The amount to change the account balance by (assumed to be positive)
+     * @param miscellaneous Taken directly from the transaction in some cases, clarifies whether the transaction is to debit or credit the balance
+     *
+     * @return false if negative balance constraint fails, true otherwise.
+     */
+    private static boolean changeBalance(MasterBankAccountData account, float funds, String miscellaneous) {
         if (miscellaneous == "DR") {
 
         }
@@ -61,12 +88,22 @@ public final class Transaction {
         if (!isBalanceZero(account.getBalance(), funds)) {
             account.addBalance(funds);
         } else {
-            //ERROR
+            return false;
         }
+        return true;
     }
 
+    /**
+     * isBalanceZero
+     *
+     * Helper function for changeBalance, determines if a balance is negative after adding funds.
+     *
+     * @param balance The value of the account balance before funds are added.
+     * @param funds The value of funds to add to the account balance.
+     * @return true if the resulting balance would be negative, false otherwise.
+     */
     private static Boolean isBalanceZero(float balance, float funds) {
-        return balance + funds <= 0;
+        return balance + funds < 0.0;
     }
 
     private static void create(MasterBankAccountHandler handler, TransactionData data) {

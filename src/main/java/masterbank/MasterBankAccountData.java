@@ -7,7 +7,7 @@ public class MasterBankAccountData {
     float balance;
     int totalTransactions;
     boolean studentPlan;
-    
+
     MasterBankAccountData() { // Test without file
       
     }

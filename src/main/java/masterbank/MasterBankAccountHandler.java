@@ -53,7 +53,7 @@ public class MasterBankAccountHandler {
         		
         		
         		MasterBankAccountData temp = 
-        				new MasterBankAccountData(Integer.parseInt(account.substring(0, 5)), account.substring(6,27), account.substring(27,28), Float.parseFloat(account.substring(29,36)), Integer.parseInt(account.substring(38,42)), Boolean.parseBoolean(account.substring(43,44)));
+        				new MasterBankAccountData(Integer.parseInt(account.substring(0, 5)), account.substring(6,27), account.substring(27,28), Float.parseFloat(account.substring(29,36)), Integer.parseInt(account.substring(38,42)), Boolean.parseBoolean(account.substring(43,47)));
         		//Testing Purposes       		
         		System.out.println(temp);
         		accounts.add(temp);

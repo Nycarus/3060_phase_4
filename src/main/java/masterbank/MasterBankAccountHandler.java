@@ -122,13 +122,15 @@ public class MasterBankAccountHandler {
 	 * TODO: [DESCRIPTION HERE!!!]
 	 *
 	 * @param file TODO: [DESCRIPTION HERE!!!]
+	 * @param isMaster Flags whether or not the file to be output is a master bank account. If not,
+	 *                 it's a current bank account file, and the transaction count shouldn't be recorded.
 	 */
-    public void writeFile(String file) {
+    public void writeFile(String file, boolean isMaster) {
     	try {
     	      FileWriter writer = new FileWriter(file);
     	      //Write updated bank account files
     	      for(int i = 0; i < accounts.size(); i++){
-    	    	  writer.write(accounts.get(i).toString()+ "\n");
+    	    	  writer.write(accounts.get(i).toString(isMaster)+ "\n");
     	      }
     	      writer.close();
     	      System.out.println("Wrote to Master Bank account file");

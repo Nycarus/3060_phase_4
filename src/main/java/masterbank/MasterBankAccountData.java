@@ -73,10 +73,15 @@ public class MasterBankAccountData {
      *
      * TODO: [DESCRIPTION HERE!!!]
      *
-     * @return TODO: [DESCRIPTION HERE!!!]
+     * @param transactionOutput True if the transaction count should be returned (for the purposes of Master Bank Account
+     *                          File output), false otherwise.
+     * @return The string value of
      */
-    public String toString() {
-        return this.number + " " + this.name + " " + this.status + " " + this.balance + " " + this.totalTransactions + " " + this.studentPlan;
+    public String toString(boolean transactionOutput) {
+        if (transactionOutput) {
+            return this.number + " " + this.name + " " + this.status + " " + this.balance + " " + this.totalTransactions + " " + this.studentPlan;
+        }
+        return this.number +" "+ this.name +" "+ this.status +" "+ this.balance +" "+ this.studentPlan;
     }
 
     /** getBalance

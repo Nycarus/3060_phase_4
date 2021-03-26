@@ -7,10 +7,6 @@ public class MasterBankAccountData {
     float balance;
     int totalTransactions;
     boolean studentPlan;
-  
-
-
-
     
     MasterBankAccountData() { // Test without file
       
@@ -28,7 +24,7 @@ public class MasterBankAccountData {
 
     public void dailyTransactions(MasterBankAccountData data) {
 
-       if(data.studentPlan== true){
+       if(data.studentPlan){
           //checks to see if account can go negative
           if(data.balance >= (float)(data.totalTransactions*0.05)){
           data.balance=data.balance - (float)(data.totalTransactions*0.05);
@@ -61,6 +57,13 @@ public class MasterBankAccountData {
       return this.balance;
     }
 
+    public boolean addBalance(float amount) {
+        this.balance += amount;
+        return true;
+    }
 
+    public boolean getStudentPlan() {
+        return this.studentPlan;
+    }
 
 }

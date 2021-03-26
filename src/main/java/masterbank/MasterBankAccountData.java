@@ -62,7 +62,7 @@ public class MasterBankAccountData {
      *
      * return account balance
      *
-     * @return return balance
+     * @return return MasterBankAccountData balance
      */
     public float getBalance() {
         return this.balance;
@@ -71,9 +71,9 @@ public class MasterBankAccountData {
     /**
      * addBalance
      *
-     * add funds to account balance
+     * add funds to account MasterBankAccountData balance 
      *
-     * @param funds updates new balance
+     * @param funds  new balance added  
      */
     public void addBalance(float funds) {
         this.balance += funds;

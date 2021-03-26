@@ -46,16 +46,13 @@ public class MasterBankAccountHandler {
     		while(reader.hasNextLine()){
     			String account = reader.nextLine();
         		//Parse account string
-        		String[] holder = account.split(" ");
-        		//Testing Purposes
-        		System.out.println(account);
-        		for(String i : holder){
-        			System.out.println(i);
-        		}
         		
-        		MasterBankAccountData temp 
-        		= new MasterBankAccountData(Integer.parseInt(holder[0]), holder[1], holder[2], Float.parseFloat(holder[3]), Integer.parseInt(holder[4]), Boolean.parseBoolean(holder[5]));
-        		accounts.add(temp);
+        		
+        		MasterBankAccountData temp = 
+        				new MasterBankAccountData(Integer.parseInt(account.substring(0, 5)), account.substring(6,27), account.substring(27,28), Float.parseFloat(account.substring(29,36)), Integer.parseInt(account.substring(38,42)), Boolean.parseBoolean(account.substring(43,44)));
+        		//Testing Purposes       		
+        		System.out.println(temp);
+        		//accounts.add(temp);
     		}
     		//Process file accounts
     	
@@ -72,9 +69,9 @@ public class MasterBankAccountHandler {
     	try {
     	      FileWriter writer = new FileWriter(file);
     	      //Write updated bank account files
-    	      for(int i = 0; i < accounts.size(); i++){
-    	    	  writer.write(accounts.get(i).toString());
-    	      }
+    	      //for(int i = 0; i < accounts.size(); i++){
+    	    	  //writer.write(accounts.get(i).toString());
+    	      //}
     	      writer.close();
     	      System.out.println("Wrote to Master Bank account file");
     	      //File cannot be opened to write

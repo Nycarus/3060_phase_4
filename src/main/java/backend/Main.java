@@ -6,7 +6,7 @@ import main.java.transaction.*;
 import java.util.List;
 
 public class Main {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         String masterBankAccountInputFile = args[0];
         String transactionInputFile = args[1];
         String accountOutputFile = args[2];

@@ -7,16 +7,17 @@ import java.util.List;
 /**
  * Transaction
  *
- * TODO: [DESCRIPTION HERE!!!]
+ *	class to apply transactions on masterBankAccounts
+ *
  */
 public final class TransactionHelper {
     /**
      * updateAccounts
      *
-     * TODO: [DESCRIPTION HERE!!!]
-     *
-     * @param masterBankAccountHandler TODO: [DESCRIPTION HERE!!!]
-     * @param transactionHandler TODO: [DESCRIPTION HERE!!!]
+     * method which applies all the transactions to each account using applyTransaction()
+     * 
+     * @param masterBankAccountHandler the class with methods to process MasterBankAccountData
+     * @param transactionHandler applies transaction to accounts
      */
     public static void updateAccounts(MasterBankAccountHandler masterBankAccountHandler, TransactionHandler transactionHandler) {
         for (TransactionData transaction : transactionHandler.getTransactions()) {
@@ -126,10 +127,11 @@ public final class TransactionHelper {
     /**
      * create
      *
-     * TODO: [DESCRIPTION HERE!!!]
+     * Checks to see if account already exists when create transaction is processed
+     * creates new account if there is no existing account
      *
-     * @param handler TODO: [DESCRIPTION HERE!!!]
-     * @param data TODO: [DESCRIPTION HERE!!!]
+     * @param handler The MasterBankAccountHandler containing the account to apply the transactions to.
+     * @param data The TransactionData which stores codes to process transactions
      */
     private static void create(MasterBankAccountHandler handler, TransactionData data) {
         if (handler.exists(data.number)) {
@@ -143,10 +145,10 @@ public final class TransactionHelper {
     /**
      * delete
      *
-     * TODO: [DESCRIPTION HERE!!!]
+     * applies delete to the current account being processed
      *
-     * @param handler TODO: [DESCRIPTION HERE!!!]
-     * @param account TODO: [DESCRIPTION HERE!!!]
+     * @param handler The MasterBankAccountHandler containing the account to apply the transactions to.
+     * @param account current account being processed to be deleted
      */
     private static void delete(MasterBankAccountHandler handler, MasterBankAccountData account) {
         List<MasterBankAccountData> removed = handler.getAccounts();
@@ -157,9 +159,9 @@ public final class TransactionHelper {
     /**
      * disable
      *
-     * TODO: [DESCRIPTION HERE!!!]
+     * changes status of current account being processed
      *
-     * @param account TODO: [DESCRIPTION HERE!!!]
+     * @param account current account being processed to be disabled
      */
     private static void disable(MasterBankAccountData account) {
         account.toggleStatus();
@@ -168,9 +170,9 @@ public final class TransactionHelper {
     /**
      * changeplan
      *
-     * TODO: [DESCRIPTION HERE!!!]
+     * change current plan of account to either student or non-student
      *
-     * @param account TODO: [DESCRIPTION HERE!!!]
+     * @param account current account being processed for a changeplan
      */
     private static void changeplan(MasterBankAccountData account) {
         account.togglePlan();

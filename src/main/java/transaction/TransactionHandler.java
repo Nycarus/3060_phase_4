@@ -5,6 +5,12 @@ import java.util.List;
 import java.io.BufferedReader;
 import java.nio.file.Files;
 
+/**
+ * TransactionHandler
+ *
+ * Responsible for handling reading, converting, and storing transaction files into more easily-accessible
+ * TransactionData instances.
+ */
 public class TransactionHandler {
     private List<TransactionData> transactions;
 

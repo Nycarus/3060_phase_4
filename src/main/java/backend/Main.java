@@ -6,7 +6,7 @@ import main.java.transaction.*;
 /**
  * Main
  *
- * TODO: [DESCRIPTION HERE!!!]
+ * Responsible for running and utilizing the constructed classes to create a functioning back-end.
  */
 public class Main {
     public static void main(String[] args) {

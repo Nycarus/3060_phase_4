@@ -5,6 +5,11 @@ import main.java.transaction.*;
 
 import java.util.List;
 
+/**
+ * Main
+ *
+ * TODO: [DESCRIPTION HERE!!!]
+ */
 public class Main {
     public static void main(String[] args) {
         String masterBankAccountInputFile = args[0];

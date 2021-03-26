@@ -1,5 +1,10 @@
 package main.java.masterbank;
 
+/**
+ * MasterBankAccountData
+ *
+ * TODO: [DESCRIPTION HERE!!!]
+ */
 public class MasterBankAccountData {
     int number; // constraint of unique bank account
     String name;
@@ -12,6 +17,18 @@ public class MasterBankAccountData {
 
     }
 
+    /**
+     * MasterBankAccountData
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     *
+     * @param number TODO: [DESCRIPTION HERE!!!]
+     * @param name TODO: [DESCRIPTION HERE!!!]
+     * @param status TODO: [DESCRIPTION HERE!!!]
+     * @param balance TODO: [DESCRIPTION HERE!!!]
+     * @param totalTransactions TODO: [DESCRIPTION HERE!!!]
+     * @param studentPlan TODO: [DESCRIPTION HERE!!!]
+     */
     public MasterBankAccountData(int number, String name, String status, float balance, int totalTransactions, boolean studentPlan) {
 
         this.number = number;
@@ -22,6 +39,13 @@ public class MasterBankAccountData {
         this.studentPlan = studentPlan;
     }
 
+    /**
+     * dailyTransactions
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     *
+     * @param data TODO: [DESCRIPTION HERE!!!]
+     */ //WARNING: POSSIBLY DEPRECATED/USELESS, REVIEW AND CONSIDER REMOVING ALTOGETHER
     public void dailyTransactions(MasterBankAccountData data) {
 
         if (data.studentPlan) {
@@ -44,22 +68,54 @@ public class MasterBankAccountData {
         }
     }
 
+    /**
+     * toString
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     *
+     * @return TODO: [DESCRIPTION HERE!!!]
+     */
     public String toString() {
         return this.number + " " + this.name + " " + this.status + " " + this.balance + " " + this.totalTransactions + " " + this.studentPlan;
     }
 
+    /** getBalance
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     *
+     * @return TODO: [DESCRIPTION HERE!!!]
+     */
     public float getBalance() {
         return this.balance;
     }
 
+    /**
+     * addBalance
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     *
+     * @param funds TODO: [DESCRIPTION HERE!!!]
+     */
     public void addBalance(float funds) {
         this.balance += funds;
     }
 
+    /**
+     * getStudentPlan
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     *
+     * @return TODO: [DESCRIPTION HERE!!!]
+     */
     public boolean getStudentPlan() {
         return this.studentPlan;
     }
 
+    /**
+     * toggleStatus
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     */
     public void toggleStatus() {
         if (this.status == "A") {
             this.status = "D";
@@ -68,6 +124,11 @@ public class MasterBankAccountData {
         }
     }
 
+    /**
+     * togglePlan
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     */
     public void togglePlan() {
         this.studentPlan = !this.studentPlan;
     }

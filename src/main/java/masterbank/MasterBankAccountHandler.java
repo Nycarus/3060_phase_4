@@ -8,28 +8,60 @@ import java.util.ArrayList;
 import java.util.List;
 
 //Reading old banking account and writing new master accounts
+
+/**
+ * MasterBankAccountHandler
+ *
+ * TODO: [DESCRIPTION HERE!!!]
+ */
 public class MasterBankAccountHandler {
     private List<MasterBankAccountData> accounts = new ArrayList<>();
 
-    public MasterBankAccountHandler(){
-        
-    }
+    public MasterBankAccountHandler(){}
 
-    public List<MasterBankAccountData> getAccounts() {
+	/**
+	 * getAccounts
+	 *
+	 * TODO: [DESCRIPTION HERE!!!]
+	 *
+	 * @return TODO: [DESCRIPTION HERE!!!]
+	 */
+	public List<MasterBankAccountData> getAccounts() {
         return this.accounts;
     }
 
-    public void setAccounts(List<MasterBankAccountData> target) {
+	/**
+	 * setAccounts
+	 *
+	 * TODO: [DESCRIPTION HERE!!!]
+	 *
+	 * @param target TODO: [DESCRIPTION HERE!!!]
+	 */
+	public void setAccounts(List<MasterBankAccountData> target) {
     	this.accounts = target;
 	}
 
     // Might not be needed
+	/**
+	 * findAccount
+	 *
+	 * TODO: [DESCRIPTION HERE!!!]
+	 *
+	 * @return TODO: [DESCRIPTION HERE!!!]
+	 */
     public MasterBankAccountData findAccount() {
         return null;
     }
 
-    // A simple check to see if the account ID is present already in accounts, used to enforce the duplicate ID constraint
-    public boolean exists(int accountID) {
+	/**
+	 * exists
+	 *
+	 * A simple check to see if the account ID is present already in accounts, used to enforce the duplicate ID constraint
+	 *
+	 * @param accountID the ID number to check
+	 * @return true if an account with the same ID number is present in the Handler's list of accounts
+	 */
+	public boolean exists(int accountID) {
     	for (MasterBankAccountData account : this.accounts) {
     		if (accountID == account.number) {
     			return true;
@@ -42,7 +74,15 @@ public class MasterBankAccountHandler {
     
     //Reading in banking old master and merge bank accounts
     //Sample account format 12345 John Doe             A 00000000 0001 1
-    public void readFile(String file) {
+
+	/**
+	 * readFile
+	 *
+	 * TODO: [DESCRIPTION HERE!!!]
+	 *
+	 * @param file TODO: [DESCRIPTION HERE!!!]
+	 */
+	public void readFile(String file) {
     	try{
     		File inMaster = new File(file);
     		Scanner reader = new Scanner(inMaster);
@@ -69,6 +109,14 @@ public class MasterBankAccountHandler {
     }
     
     //Writing to new current and master account files
+
+	/**
+	 * writeFile
+	 *
+	 * TODO: [DESCRIPTION HERE!!!]
+	 *
+	 * @param file TODO: [DESCRIPTION HERE!!!]
+	 */
     public void writeFile(String file) {
     	try {
     	      FileWriter writer = new FileWriter(file);

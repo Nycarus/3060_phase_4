@@ -12,9 +12,6 @@ public class TransactionHandler {
      * TransactionHandler
      *
      * 0-parameter version of TransactionHandler's initializer, that doesn't initialize the transactions content
-     *
-     *
-     *
      */
     public TransactionHandler() {}
 
@@ -27,7 +24,6 @@ public class TransactionHandler {
      *
      * Reads in the Bank Account Transaction File,
      * converting the text representations of the Transactions into TransactionData instances.
-     *
      *
      * @param file The path to the past day's Merge Bank Account Transaction File.
      */

@@ -4,8 +4,20 @@ import main.java.masterbank.*;
 
 import java.util.List;
 
+/**
+ * Transaction
+ *
+ * TODO: [DESCRIPTION HERE!!!]
+ */
 public final class Transaction {
-
+    /**
+     * updateAccounts
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     *
+     * @param masterBankAccountHandler TODO: [DESCRIPTION HERE!!!]
+     * @param transactionHandler TODO: [DESCRIPTION HERE!!!]
+     */
     public static void updateAccounts(MasterBankAccountHandler masterBankAccountHandler, TransactionHandler transactionHandler) {
         for (TransactionData transaction : transactionHandler.getTransactions()) {
             startTransaction(masterBankAccountHandler, transaction);
@@ -106,6 +118,14 @@ public final class Transaction {
         return balance + funds < 0.0;
     }
 
+    /**
+     * create
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     *
+     * @param handler TODO: [DESCRIPTION HERE!!!]
+     * @param data TODO: [DESCRIPTION HERE!!!]
+     */
     private static void create(MasterBankAccountHandler handler, TransactionData data) {
         if (handler.exists(data.number)) {
             System.out.println("ERROR: Constraint failed, account #"+data.number+" already exists. Transaction "+data.toString());
@@ -115,16 +135,38 @@ public final class Transaction {
         }
     }
 
+    /**
+     * delete
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     *
+     * @param handler TODO: [DESCRIPTION HERE!!!]
+     * @param account TODO: [DESCRIPTION HERE!!!]
+     */
     private static void delete(MasterBankAccountHandler handler, MasterBankAccountData account) {
         List<MasterBankAccountData> removed = handler.getAccounts();
         removed.remove(account);
         handler.setAccounts(removed);
     }
 
+    /**
+     * disable
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     *
+     * @param account TODO: [DESCRIPTION HERE!!!]
+     */
     private static void disable(MasterBankAccountData account) {
         account.toggleStatus();
     }
 
+    /**
+     * changeplan
+     *
+     * TODO: [DESCRIPTION HERE!!!]
+     *
+     * @param account TODO: [DESCRIPTION HERE!!!]
+     */
     private static void changeplan(MasterBankAccountData account) {
         account.togglePlan();
     }

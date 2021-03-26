@@ -12,7 +12,11 @@ import java.util.List;
 /**
  * MasterBankAccountHandler
  *
- * TODO: [DESCRIPTION HERE!!!]
+ *  This class is intended to handle MasterBankAccountData methods
+ *  readFile() - > reads current master bank accounts
+ *  writeFile() - >  updates current master bank accounts
+ *  getAccounts() - > returns the list of accounts
+ *  
  */
 public class MasterBankAccountHandler {
     private List<MasterBankAccountData> accounts = new ArrayList<>();
@@ -22,9 +26,9 @@ public class MasterBankAccountHandler {
 	/**
 	 * getAccounts
 	 *
-	 * TODO: [DESCRIPTION HERE!!!]
+	 * returns a list of accounts
 	 *
-	 * @return TODO: [DESCRIPTION HERE!!!]
+	 * @return accounts<MasterBankAccountData>
 	 */
 	public List<MasterBankAccountData> getAccounts() {
         return this.accounts;
@@ -33,21 +37,19 @@ public class MasterBankAccountHandler {
 	/**
 	 * setAccounts
 	 *
-	 * TODO: [DESCRIPTION HERE!!!]
+	 * Set the accounts list equal to a target object
 	 *
-	 * @param target TODO: [DESCRIPTION HERE!!!]
+	 * @param target 
 	 */
 	public void setAccounts(List<MasterBankAccountData> target) {
     	this.accounts = target;
 	}
-
-    // Might not be needed
 	/**
 	 * findAccount
 	 *
-	 * TODO: [DESCRIPTION HERE!!!]
+	 * find an account based on the number and the name given
 	 *
-	 * @return TODO: [DESCRIPTION HERE!!!]
+	 * @return account the account that was found with the name and number
 	 */
     public MasterBankAccountData findAccount(String name, int number) {
         for (MasterBankAccountData account : this.accounts) {
@@ -58,7 +60,6 @@ public class MasterBankAccountHandler {
 
 		return null;
     }
-
 	/**
 	 * exists
 	 *
@@ -84,9 +85,9 @@ public class MasterBankAccountHandler {
 	/**
 	 * readFile
 	 *
-	 * TODO: [DESCRIPTION HERE!!!]
+	 * Reads in MasterBankAccount files and stores them in a list to process transactions on
 	 *
-	 * @param file TODO: [DESCRIPTION HERE!!!]
+	 * @param file the name of the file to be processed 
 	 */
 	public void readFile(String file) {
     	try{
@@ -109,7 +110,7 @@ public class MasterBankAccountHandler {
     		reader.close();
     	}catch(FileNotFoundException e){
     		//If Account it wrong type or Error with file
-    		System.out.println("Master bank account file cannot be opened!");
+    		System.out.println("ERROR: Master bank account file cannot be opened");
     		e.printStackTrace();
     	}	
     }
@@ -119,24 +120,22 @@ public class MasterBankAccountHandler {
 	/**
 	 * writeFile
 	 *
-	 * TODO: [DESCRIPTION HERE!!!]
+	 * Creates/Updates a new updated masterbankaccount file which has all the transactions processed
 	 *
-	 * @param file TODO: [DESCRIPTION HERE!!!]
-	 * @param isMaster Flags whether or not the file to be output is a master bank account. If not,
-	 *                 it's a current bank account file, and the transaction count shouldn't be recorded.
+	 * @param file the name of the file to be written to
 	 */
-    public void writeFile(String file, boolean isMaster) {
+    public void writeFile(String file) {
     	try {
     	      FileWriter writer = new FileWriter(file);
     	      //Write updated bank account files
     	      for(int i = 0; i < accounts.size(); i++){
-    	    	  writer.write(accounts.get(i).toString(isMaster)+ "\n");
+    	    	  writer.write(accounts.get(i).toString()+ "\n");
     	      }
     	      writer.close();
     	      System.out.println("Wrote to Master Bank account file");
     	      //File cannot be opened to write
     	    }catch (IOException e) {
-    	      System.out.println("Error occured with Masterbank Account File");
+    	      System.out.println("ERROR: Master bank account file cannot be written to");
     	      e.printStackTrace();
     	    }
     }

@@ -20,7 +20,7 @@ public class Main {
         transactionHandler.readFile(transactionInputFile);
 
         // update bank accounts
-        Transaction.updateAccounts(masterBankAccountHandler, transactionHandler);
+        //Transaction.updateAccounts(masterBankAccountHandler, transactionHandler);
 
         // Write to Files
         masterBankAccountHandler.writeFile(masterBankAccountOutputFile);

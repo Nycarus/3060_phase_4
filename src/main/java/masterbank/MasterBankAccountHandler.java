@@ -1,5 +1,5 @@
 package main.java.masterbank;
-import java.io.File;  
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import java.util.List;
  *  readFile() - > reads current master bank accounts
  *  writeFile() - >  updates current master bank accounts
  *  getAccounts() - > returns the list of accounts
- *  
+ *
  */
 public class MasterBankAccountHandler {
     private List<MasterBankAccountData> accounts = new ArrayList<>();
@@ -39,7 +39,7 @@ public class MasterBankAccountHandler {
 	 *
 	 * Set the accounts list equal to a target object
 	 *
-	 * @param target 
+	 * @param target The new list to use for the handler's account data.
 	 */
 	public void setAccounts(List<MasterBankAccountData> target) {
     	this.accounts = target;
@@ -78,43 +78,42 @@ public class MasterBankAccountHandler {
     	//for loop exhausted, therefore ID not found
     	return false;
 	}
-    
+
     //Reading in banking old master and merge bank accounts
     //Sample account format 12345 John Doe             A 00000000 0001 1
-
 	/**
 	 * readFile
 	 *
 	 * Reads in MasterBankAccount files and stores them in a list to process transactions on
 	 *
-	 * @param file the name of the file to be processed 
+	 * @param file the name of the file to be processed
 	 */
 	public void readFile(String file) {
     	try{
     		File inMaster = new File(file);
     		Scanner reader = new Scanner(inMaster);
-    		//Read each bank account file 
+    		//Read each bank account file
     		while(reader.hasNextLine()){
     			String account = reader.nextLine();
         		//Parse account string
-        		
-        		
-        		MasterBankAccountData temp = 
+
+
+        		MasterBankAccountData temp =
         				new MasterBankAccountData(Integer.parseInt(account.substring(0, 5)), account.substring(6,27), account.substring(27,28), Float.parseFloat(account.substring(29,37)), Integer.parseInt(account.substring(38,42)), Boolean.parseBoolean(account.substring(43,47)));
-        		//Testing Purposes       		
+        		//Testing Purposes
         		System.out.println(temp);
         		accounts.add(temp);
     		}
     		//Process file accounts
-    	
+
     		reader.close();
     	}catch(FileNotFoundException e){
     		//If Account it wrong type or Error with file
     		System.out.println("ERROR: Master bank account file cannot be opened");
     		e.printStackTrace();
-    	}	
+    	}
     }
-    
+
     //Writing to new current and master account files
 
 	/**
@@ -140,9 +139,3 @@ public class MasterBankAccountHandler {
     	    }
     }
 }
-
-
-
-
-
-

@@ -14,10 +14,6 @@ public class MasterBankAccountData {
     int totalTransactions;
     boolean studentPlan;
 
-    MasterBankAccountData() { // Test without file
-
-    }
-
     /**
      * MasterBankAccountData
      *
@@ -103,5 +99,16 @@ public class MasterBankAccountData {
      */
     public void togglePlan() {
         this.studentPlan = !this.studentPlan;
+    }
+
+    /**
+     * getStudentPlan
+     *
+     * Accessor for this account's student plan.
+     *
+     * @return true if the account is on a student plan, false if the account is on a non-student plan.
+     */
+    public boolean getStudentPlan() {
+        return this.studentPlan;
     }
 }

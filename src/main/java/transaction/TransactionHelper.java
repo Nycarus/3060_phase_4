@@ -69,8 +69,8 @@ public final class TransactionHelper {
                         changeplan(account);
                         break;
                 }
-            } else {
-                // TODO: add error statement of account not being found
+            } else { //Notably, create doesn't trigger this, since we expect the account to not exist before creation
+                System.out.println("ERROR: Account not found for transaction "+transaction.toString());
             }
         } else {
             create(accountHandler, transaction);

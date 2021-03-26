@@ -2,6 +2,8 @@ package main.java.transaction;
 
 import main.java.masterbank.*;
 
+import java.util.List;
+
 public final class Transaction {
 
     public static void updateAccounts(MasterBankAccountHandler masterBankAccountHandler, TransactionHandler transactionHandler) {
@@ -27,13 +29,13 @@ public final class Transaction {
                     changeBalance(account, transaction.funds, transaction.miscellaneous);
                     break;
                 case 6:
-                    delete();
+                    delete(accountHandler, account);
                     break;
                 case 7:
-                    disable();
+                    disable(account);
                     break;
                 case 8:
-                    changeplan();
+                    changeplan(account);
                     break;
             }
         } else {
@@ -70,20 +72,23 @@ public final class Transaction {
     private static void create(MasterBankAccountHandler handler, TransactionData data) {
         if (handler.exists(data.number)) {
             System.out.println("ERROR: Constraint failed, account #"+data.number+" already exists. Transaction "+data.toString());
+        } else {
+            MasterBankAccountData newAccount = new MasterBankAccountData(data.number, data.name, "A", data.funds, 0, false);
+            handler.getAccounts().add(newAccount);
         }
-        MasterBankAccountData newAccount = new MasterBankAccountData(data.number, data.name, "A", data.funds, 0, false);
-        handler.getAccounts().add(newAccount);
     }
 
-    private static void delete() {
-
+    private static void delete(MasterBankAccountHandler handler, MasterBankAccountData account) {
+        List<MasterBankAccountData> removed = handler.getAccounts();
+        removed.remove(account);
+        handler.setAccounts(removed);
     }
 
-    private static void disable() {
-
+    private static void disable(MasterBankAccountData account) {
+        account.toggleStatus();
     }
 
-    private static void changeplan() {
-
+    private static void changeplan(MasterBankAccountData account) {
+        account.togglePlan();
     }
 }

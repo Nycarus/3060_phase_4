@@ -19,6 +19,10 @@ public class MasterBankAccountHandler {
         return this.accounts;
     }
 
+    public void setAccounts(List<MasterBankAccountData> target) {
+    	this.accounts = target;
+	}
+
     // Might not be needed
     public MasterBankAccountData findAccount() {
         return null;

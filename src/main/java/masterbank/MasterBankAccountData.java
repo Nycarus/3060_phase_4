@@ -59,4 +59,16 @@ public class MasterBankAccountData {
     public boolean getStudentPlan() {
         return this.studentPlan;
     }
+
+    public void toggleStatus() {
+        if (this.status == "A") {
+            this.status = "D";
+        } else {
+            this.status = "A";
+        }
+    }
+
+    public void togglePlan() {
+        this.studentPlan = !this.studentPlan;
+    }
 }

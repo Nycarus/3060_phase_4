@@ -89,20 +89,26 @@ public class MasterBankAccountHandler {
 	 * @param file the name of the file to be processed
 	 */
 	public void readFile(String file) {
-    	try{
-    		File inMaster = new File(file);
-    		Scanner reader = new Scanner(inMaster);
-    		//Read each bank account file
-    		while(reader.hasNextLine()){
-    			String account = reader.nextLine();
-        		//Parse account string
+    	  if(!inMaster.exists()){
+				System.out.println("ERROR: Master bank account file does not exist");
+			  }
+			  else{
+					try{
+    					File inMaster = new File(file);
+    					Scanner reader = new Scanner(inMaster);
+    					//Read each bank account file
+		
+
+    					while(reader.hasNextLine()){
+    					String account = reader.nextLine();
+        				//Parse account string
 
 
-        		MasterBankAccountData temp =
+        				MasterBankAccountData temp =
         				new MasterBankAccountData(Integer.parseInt(account.substring(0, 5)), account.substring(6,27), account.substring(27,28), Float.parseFloat(account.substring(29,37)), Integer.parseInt(account.substring(38,42)), Boolean.parseBoolean(account.substring(43,47)));
-        		//Testing Purposes
-        		System.out.println(temp);
-        		accounts.add(temp);
+        				//Testing Purposes
+        				System.out.println(temp);
+        				accounts.add(temp);
     		}
     		//Process file accounts
 
@@ -112,6 +118,7 @@ public class MasterBankAccountHandler {
     		System.out.println("ERROR: Master bank account file cannot be opened");
     		e.printStackTrace();
     	}
+		}
     }
 
     //Writing to new current and master account files
@@ -125,7 +132,10 @@ public class MasterBankAccountHandler {
 	 */
     public void writeFile(String file) {
     	try {
+			  
     	      FileWriter writer = new FileWriter(file);
+			  temp = File.createTempFile(file, ".txt");
+
     	      //Write updated bank account files
     	      for(int i = 0; i < accounts.size(); i++){
     	    	  writer.write(accounts.get(i).toString()+ "\n");
@@ -137,5 +147,7 @@ public class MasterBankAccountHandler {
     	      System.out.println("ERROR: Master bank account file cannot be written to");
     	      e.printStackTrace();
     	    }
+
+			
     }
 }

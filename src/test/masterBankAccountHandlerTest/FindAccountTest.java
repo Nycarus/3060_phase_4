@@ -16,7 +16,7 @@ public class FindAccountTest {
     }
 
     @Test
-    public void findAccountTest1(){
+    public void findAccountTest2(){
         MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
         masterBankAccountHandler.readFile(masterBankAccountInputFile);
 

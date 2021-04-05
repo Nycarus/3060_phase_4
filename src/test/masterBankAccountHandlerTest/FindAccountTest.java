@@ -11,8 +11,8 @@ public class FindAccountTest {
         masterBankAccountHandler.readFile("src/test/resources/master_bank_accounts.txt");
 
         MasterBankAccountData masterbankAccount = masterBankAccountHandler.findAccount("John",0);
-        assertEquals("John", masterbankAccount.name);
-        assertEquals(0, masterbankAccount.number);
+        assertEquals("John", masterbankAccount.getName());
+        assertEquals(0, masterbankAccount.getNumber());
     }
 
     @Test

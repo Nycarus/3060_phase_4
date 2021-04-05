@@ -1,3 +1,3 @@
-00001 John Doe              A 00000100 0001 true
-00002 John Dae              A 00000300 0002 false
-12347 John Lee              A 00000400 0003 true
+main.java.masterbank.MasterBankAccountData@42a57993
+main.java.masterbank.MasterBankAccountData@75b84c92
+main.java.masterbank.MasterBankAccountData@6bc7c054

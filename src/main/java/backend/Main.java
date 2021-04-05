@@ -21,7 +21,6 @@ public class Main {
         // Read Files
         masterBankAccountHandler.readFile(masterBankAccountInputFile);
         transactionHandler.readFile(transactionInputFile);
-
         // update bank accounts
         TransactionHelper.updateAccounts(masterBankAccountHandler, transactionHandler);
 

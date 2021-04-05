@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.print.DocFlavor.URL;
+
 import org.junit.Test;
 
 public class LoopTest {
@@ -21,14 +23,14 @@ public class LoopTest {
     @Test
     public void testLoop() throws IOException {
     	MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
-        assertEquals("", masterBankAccountHandler.readFile("test_Empty_file.txt"));
+        assertEquals("", masterBankAccountHandler.readFile("empty.txt"));
     }
   
     //Checks condition of a file with one line
     @Test
     public void testLoop1() throws IOException {
     	MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
-	assertEquals("00001 John Doe             A 00000100 0001 true", masterBankAccountHandler.readFile("src/test/resources/looptest1.txt"));
+	assertEquals("00001 John Doe             A 00000100 0001 true", masterBankAccountHandler.readFile("looptest1.txt"));
     }
     //Checks condition of a file with two lines
     @Test

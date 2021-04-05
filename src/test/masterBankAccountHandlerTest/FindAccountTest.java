@@ -19,8 +19,8 @@ public class FindAccountTest {
         masterBankAccountHandler.setAccounts(accountsList);
 
         MasterBankAccountData masterbankAccount = masterBankAccountHandler.findAccount("John",0);
-        assertEquals("John", masterbankAccount.name);
-        assertEquals(0, masterbankAccount.number);
+        assertEquals("John", masterbankAccount.getName());
+        assertEquals(0, masterbankAccount.getNumber());
     }
 
     @Test

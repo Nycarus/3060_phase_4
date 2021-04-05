@@ -108,4 +108,26 @@ public class MasterBankAccountData {
     public boolean getStudentPlan() {
         return this.studentPlan;
     }
+
+    /**
+     * getName
+     *
+     * Accessor for this account's student plan.
+     *
+     * @return true if the account is on a student plan, false if the account is on a non-student plan.
+     */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * getNumber
+     *
+     * Accessor for this account's student plan.
+     *
+     * @return true if the account is on a student plan, false if the account is on a non-student plan.
+     */
+    public int getNumber() {
+        return this.number;
+    }
 }

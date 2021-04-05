@@ -8,7 +8,7 @@ public class FindAccountTest {
     @Test
     public void findAccountTest1() {
         MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
-        masterBankAccountHandler.readFile(masterBankAccountInputFile);
+        masterBankAccountHandler.readFile("src/test/resources/master_bank_accounts.txt");
 
         MasterBankAccountData masterbankAccount = masterBankAccountHandler.findAccount("John",0);
         assertEquals("John", masterbankAccount.name);
@@ -18,7 +18,7 @@ public class FindAccountTest {
     @Test
     public void findAccountTest2(){
         MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
-        masterBankAccountHandler.readFile(masterBankAccountInputFile);
+        masterBankAccountHandler.readFile("src/test/resources/master_bank_accounts.txt");
 
         MasterBankAccountData masterbankAccount = masterBankAccountHandler.findAccount("John",0);
         assertNull(masterbankAccount);

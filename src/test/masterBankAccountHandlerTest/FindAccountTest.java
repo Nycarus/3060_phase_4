@@ -1,10 +1,12 @@
 package test.masterBankAccountHandlerTest;
 
 import static org.junit.Assert.*;
+import main.java.masterbank.*;
 
 public class FindAccountTest {
 	
     @Test
+<<<<<<< HEAD
     public void testChangeBalance() {
         Junit test = new Junit();
 
@@ -51,5 +53,23 @@ public class FindAccountTest {
 	
 
 
+=======
+    public void findAccountTest1() {
+        MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
+        masterBankAccountHandler.readFile("src/test/resources/master_bank_accounts.txt");
+
+        MasterBankAccountData masterbankAccount = masterBankAccountHandler.findAccount("John",0);
+        assertEquals("John", masterbankAccount.name);
+        assertEquals(0, masterbankAccount.number);
+    }
+
+    @Test
+    public void findAccountTest2(){
+        MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
+        masterBankAccountHandler.readFile("src/test/resources/master_bank_accounts.txt");
+
+        MasterBankAccountData masterbankAccount = masterBankAccountHandler.findAccount("John",0);
+        assertNull(masterbankAccount);
+>>>>>>> 35a0aea360876160a5712e1def2c68df0d945010
     }
 }

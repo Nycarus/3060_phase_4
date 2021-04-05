@@ -1,2 +1,5 @@
 .vs/
 .idea/
+/.metadata/
+src/main/java/.classpath
+src/main/java/.project

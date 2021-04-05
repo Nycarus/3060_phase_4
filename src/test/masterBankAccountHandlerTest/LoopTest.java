@@ -23,19 +23,19 @@ public class LoopTest {
     @Test
     public void testLoop() throws IOException {
     	MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
-        assertEquals("", masterBankAccountHandler.readFile("empty.txt"));
+        assertEquals("", masterBankAccountHandler.readFile("test/resources/empty.txt"));
     }
   
     //Checks condition of a file with one line
     @Test
     public void testLoop1() throws IOException {
     	MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
-	assertEquals("00001 John Doe             A 00000100 0001 true", masterBankAccountHandler.readFile("looptest1.txt"));
+	assertEquals("00001 John Doe             A 00000100 0001 true", masterBankAccountHandler.readFile("test/resources/looptest1.txt"));
     }
     //Checks condition of a file with two lines
     @Test
     public void testLoop2() throws IOException {
     	MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
-        assertEquals("00001 John Doe             A 00000100 0001 true 00002 John Dae             A 00000300 0002 false ",masterBankAccountHandler.readFile("src/test/resources/looptest2.txt"));
+        assertEquals("00001 John Doe             A 00000100 0001 true00002 John Dae             A 00000300 0002 false",masterBankAccountHandler.readFile("test/resources/looptest2.txt"));
     }
    }

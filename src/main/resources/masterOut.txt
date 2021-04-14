@@ -1,3 +1,0 @@
-main.java.masterbank.MasterBankAccountData@42a57993
-main.java.masterbank.MasterBankAccountData@75b84c92
-main.java.masterbank.MasterBankAccountData@6bc7c054

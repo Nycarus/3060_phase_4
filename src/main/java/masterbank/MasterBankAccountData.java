@@ -26,14 +26,14 @@ public class MasterBankAccountData {
      * @param totalTransactions transactions summed over time
      *
      */
-    public MasterBankAccountData(int number, String name, String status, float balance, int totalTransactions, boolean studentPlan) {
+    public MasterBankAccountData(int number, String name, String status, float balance, int totalTransactions) {
 
         this.number = number;
         this.name = name;
         this.status = status;
         this.balance = balance;
         this.totalTransactions = totalTransactions;
-        this.studentPlan = studentPlan;
+        this.studentPlan = false;
     }
 
   

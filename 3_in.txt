@@ -1,0 +1,11 @@
+login
+standard
+Bank Accounterson
+withdrawal
+00002
+100.00
+transfer
+00002
+00003
+50.00
+logout

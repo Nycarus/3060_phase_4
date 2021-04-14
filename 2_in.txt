@@ -1,0 +1,11 @@
+login
+standard
+John Doe
+deposit
+00001
+15.00
+paybill
+00001
+EC
+10.00
+logout

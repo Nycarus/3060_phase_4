@@ -93,10 +93,7 @@ public final class TransactionHelper {
      * @return false if negative balance constraint fails, true otherwise.
      */
     private static boolean changeBalance(MasterBankAccountData account, float funds, String miscellaneous) {
-        if (miscellaneous == "DR") {
-
-        }
-        else if (miscellaneous == "CR") {
+        if (miscellaneous.compareTo("CR") == 0) {
             funds = -funds;
         }
 

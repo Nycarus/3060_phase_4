@@ -82,7 +82,7 @@ public class MasterBankAccountData {
      * updates status for bank account
      */
     public void toggleStatus() {
-        if (this.status == "A") {
+        if (this.status.compareTo("A") == 0) {
             this.status = "D";
         } else {
             this.status = "A";

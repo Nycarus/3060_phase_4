@@ -1,5 +1,6 @@
 package main.java.transaction;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,7 +21,9 @@ public class TransactionHandler {
      *
      * 0-parameter version of TransactionHandler's initializer, that doesn't initialize the transactions content
      */
-    public TransactionHandler() {}
+    public TransactionHandler() {
+    	transactions = Arrays.asList();
+    }
 
     public List<TransactionData> getTransactions() {
         return this.transactions;

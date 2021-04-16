@@ -134,12 +134,12 @@ public class MasterBankAccountHandler {
 	 *
 	 * @param file the name of the file to be written to
 	 */
-    public void writeFile(String file) {
+    public void writeFile(String file, boolean isMaster) {
     	try {
     	      FileWriter writer = new FileWriter(file);
     	      //Write updated bank account files
     	      for(int i = 0; i < accounts.size(); i++){
-    	    	  writer.write(accounts.get(i).toString()+ "\n");
+    	    	  writer.write(accounts.get(i).toString(isMaster)+ "\n");
     	      }
     	      writer.close();
     	      System.out.println("Wrote to Master Bank account file");

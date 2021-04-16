@@ -25,6 +25,7 @@ public class Main {
         TransactionHelper.updateAccounts(masterBankAccountHandler, transactionHandler);
 
         // Write to Files
-        masterBankAccountHandler.writeFile(masterBankAccountOutputFile);
+        masterBankAccountHandler.writeFile(masterBankAccountOutputFile, true);
+        masterBankAccountHandler.writeFile(accountOutputFile, false);
     }
 }

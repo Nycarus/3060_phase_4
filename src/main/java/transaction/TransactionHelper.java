@@ -138,7 +138,7 @@ public final class TransactionHelper {
         if (handler.exists(data.number)) {
             System.out.println("ERROR: Constraint failed, account #"+data.number+" already exists. Transaction "+data.toString());
         } else {
-            MasterBankAccountData newAccount = new MasterBankAccountData(data.number, data.name, "A", data.funds, 0, false);
+            MasterBankAccountData newAccount = new MasterBankAccountData(data.number, data.name, "A", data.funds, 0);
             handler.getAccounts().add(newAccount);
         }
     }

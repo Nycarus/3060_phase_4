@@ -27,7 +27,7 @@ public class FindAccountTest {
     	// Initialize the objects used in the test
         MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
         ArrayList<MasterBankAccountData> accountsList = new ArrayList<MasterBankAccountData>();
-        MasterBankAccountData testAccount = new MasterBankAccountData(0, "John", "", 0.0f, 0, false);
+        MasterBankAccountData testAccount = new MasterBankAccountData(0, "John", "", 0.0f, 0);
         accountsList.add(testAccount);
         masterBankAccountHandler.setAccounts(accountsList);
 
@@ -49,7 +49,7 @@ public class FindAccountTest {
         // Initialize the objects used in the test
         MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
         ArrayList<MasterBankAccountData> accountsList = new ArrayList<MasterBankAccountData>();
-        MasterBankAccountData testAccount = new MasterBankAccountData(0, "A", "", 0.0f, 0, false);
+        MasterBankAccountData testAccount = new MasterBankAccountData(0, "A", "", 0.0f, 0);
         accountsList.add(testAccount);
         masterBankAccountHandler.setAccounts(accountsList);
 

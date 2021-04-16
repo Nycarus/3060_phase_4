@@ -1,6 +1,6 @@
 login
 admin
-create
-New Account
-50.00
+disable
+Bank Accounterson
+00003
 logout

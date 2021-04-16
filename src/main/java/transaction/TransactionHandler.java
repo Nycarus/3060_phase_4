@@ -39,15 +39,16 @@ public class TransactionHandler {
         
             String line = null;
             while ((line = in.readLine()) != null) {
-                transactions.add(new TransactionData(Integer.valueOf(line.substring(0,2)),
-                                                        line.substring(3, 23), // Might need tweaking depending on how we want to treat whitespace
-                                                        Integer.valueOf(line.substring(24, 29)),
-                                                        Float.valueOf(line.substring(30, 38)),
-                                                        line.substring(39, 41)));
+            	TransactionData temp = new TransactionData(Integer.valueOf(line.substring(0,2)),
+                        line.substring(3, 23), // Might need tweaking depending on how we want to treat whitespace
+                        Integer.valueOf(line.substring(24, 29)),
+                        Float.valueOf(line.substring(30, 38)),
+                        line.substring(39, 41));
+                transactions.add(temp);
             }
 
         } catch (Exception e) {
-            System.err.format("ERROR: Transaction File failed to read correctly - %s%n", e);
+            System.err.format("ERROR: Transaction File failed to read correctly - %s%n", e.toString());
             System.exit(1); //Fatal error, quit program altogether.
         }
     }

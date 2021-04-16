@@ -55,7 +55,9 @@ public class MasterBankAccountHandler {
 	 */
     public MasterBankAccountData findAccount(String name, int number) {
         for (MasterBankAccountData account : this.accounts) {
-			if (account.name == name && account.number == number) {
+			System.out.println("\""+account.name+"\" \""+name+"\"");
+			System.out.println("\""+Integer.toString(account.number)+"\" \""+Integer.toString(number)+"\"");
+        	if (account.name == name && account.number == number) {
 				return account;
 			}
 		}

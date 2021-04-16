@@ -35,7 +35,7 @@ public final class TransactionHelper {
      * @param transaction The transaction to be performed.
      */
     private static void applyTransaction(MasterBankAccountHandler accountHandler, TransactionData transaction) {
-        if (transaction.code != 5) { // If the transaction isn't create
+        if (transaction.code != 5 && transaction.code != 0) { // If the transaction isn't create
             MasterBankAccountData account = accountHandler.findAccount(transaction.name, transaction.number);
 
             if (account != null) {
@@ -74,7 +74,9 @@ public final class TransactionHelper {
                 System.out.println("ERROR: Account not found for transaction "+transaction.toString());
             }
         } else {
-            create(accountHandler, transaction);
+        	if (transaction.code == 5) {
+        		create(accountHandler, transaction);
+        	}
         }
 
     }

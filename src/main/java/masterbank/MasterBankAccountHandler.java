@@ -19,9 +19,11 @@ import java.util.List;
  *
  */
 public class MasterBankAccountHandler {
-    private List<MasterBankAccountData> accounts = new ArrayList<>();
+    private List<MasterBankAccountData> accounts;
 
-    public MasterBankAccountHandler(){}
+    public MasterBankAccountHandler() {
+    	accounts = new ArrayList<MasterBankAccountData>();
+    }
 
 	/**
 	 * getAccounts
@@ -106,7 +108,7 @@ public class MasterBankAccountHandler {
     				//Parse account string
 
     				MasterBankAccountData temp =
-    				new MasterBankAccountData(Integer.parseInt(account.substring(0, 5)), account.substring(6,27), account.substring(27,28), Float.parseFloat(account.substring(29,37)), Integer.parseInt(account.substring(38,42)));
+    				new MasterBankAccountData(Integer.parseInt(account.substring(0, 5)), account.substring(6,26), account.substring(27,28), Float.parseFloat(account.substring(29,37)), Integer.parseInt(account.substring(38,42)));
     				//Testing Purposes
     				//System.out.println(testReturn);
     				accounts.add(temp);

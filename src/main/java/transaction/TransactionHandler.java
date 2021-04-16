@@ -1,9 +1,10 @@
 package main.java.transaction;
 
-import java.nio.file.Paths;
 import java.util.List;
-import java.io.BufferedReader;
-import java.nio.file.Files;
+import java.util.Scanner;
+
+//import java.io.BufferedReader;
+import java.io.File;
 
 /**
  * TransactionHandler
@@ -34,11 +35,40 @@ public class TransactionHandler {
      * @param file The path to the past day's Merge Bank Account Transaction File.
      */
     public void readFile(String file) {
-        // Initialize the BufferedReader, execute within a try-catch to handle IO errors
-        try (BufferedReader in = Files.newBufferedReader(Paths.get(file))) {
+        // Initialize the File to be used by the scanner
+    	File input = new File(file);
+    	
+    	if (!input.exists()) {
+    		System.err.format("ERROR: Transaction file %s does not exist%n", file);
+    		System.exit(1);
+    	} else {
+    		try{
+				Scanner reader = new Scanner(input);
+
+				while(reader.hasNextLine()){
+					String line = reader.nextLine();
+	
+					TransactionData temp = new TransactionData(Integer.valueOf(line.substring(0,2)),
+	                        line.substring(3, 23), // Might need tweaking depending on how we want to treat whitespace
+	                        Integer.valueOf(line.substring(24, 29)),
+	                        Float.valueOf(line.substring(30, 38)),
+	                        line.substring(39, 41));
+					transactions.add(temp);	    		
+				}
+			
+				reader.close();
+	
+    	} catch (Exception e) {
+            System.err.format("ERROR: Transaction File failed to read correctly - %s%n", e.toString());
+            e.printStackTrace();
+            System.exit(1); //Fatal error, quit program altogether.
+        }
+    		
+        /*try (BufferedReader in = Files.newBufferedReader(Paths.get(file))) { //Currently deprecated BufferedReader code
         
             String line = null;
             while ((line = in.readLine()) != null) {
+            	System.out.println();
             	TransactionData temp = new TransactionData(Integer.valueOf(line.substring(0,2)),
                         line.substring(3, 23), // Might need tweaking depending on how we want to treat whitespace
                         Integer.valueOf(line.substring(24, 29)),
@@ -47,10 +77,7 @@ public class TransactionHandler {
                 transactions.add(temp);
             }
 
-        } catch (Exception e) {
-            System.err.format("ERROR: Transaction File failed to read correctly - %s%n", e.toString());
-            e.printStackTrace();
-            System.exit(1); //Fatal error, quit program altogether.
-        }
+        } */
+    	}
     }
 }

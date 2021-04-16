@@ -108,7 +108,7 @@ public class MasterBankAccountHandler {
     				MasterBankAccountData temp =
     				new MasterBankAccountData(Integer.parseInt(account.substring(0, 5)), account.substring(6,27), account.substring(27,28), Float.parseFloat(account.substring(29,37)), Integer.parseInt(account.substring(38,42)));
     				//Testing Purposes
-    				System.out.println(testReturn);
+    				//System.out.println(testReturn);
     				accounts.add(temp);
     				
     	    		

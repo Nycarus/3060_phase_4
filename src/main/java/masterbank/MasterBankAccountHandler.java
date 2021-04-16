@@ -115,7 +115,7 @@ public class MasterBankAccountHandler {
 					}
 				
     	reader.close();
-    	}catch(FileNotFoundException e){
+    	}catch(Exception e){
     		//If Account it wrong type or Error with file
     		System.out.println("ERROR: Master bank account file cannot be opened");
     		e.printStackTrace();

@@ -14,6 +14,8 @@ public class Main {
         String transactionInputFile = args[1];
         String accountOutputFile = args[2];
         String masterBankAccountOutputFile = args[3];
+        
+        System.out.println(masterBankAccountInputFile + " " + transactionInputFile);
 
         MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
         TransactionHandler transactionHandler = new TransactionHandler();

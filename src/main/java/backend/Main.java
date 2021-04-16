@@ -15,7 +15,7 @@ public class Main {
         String accountOutputFile = args[2];
         String masterBankAccountOutputFile = args[3];
         
-        System.out.println(masterBankAccountInputFile + " " + transactionInputFile);
+        //System.out.println(masterBankAccountInputFile + " " + transactionInputFile); //Injected debug output
 
         MasterBankAccountHandler masterBankAccountHandler = new MasterBankAccountHandler();
         TransactionHandler transactionHandler = new TransactionHandler();

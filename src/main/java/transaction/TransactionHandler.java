@@ -49,6 +49,7 @@ public class TransactionHandler {
 
         } catch (Exception e) {
             System.err.format("ERROR: Transaction File failed to read correctly - %s%n", e.toString());
+            e.printStackTrace();
             System.exit(1); //Fatal error, quit program altogether.
         }
     }

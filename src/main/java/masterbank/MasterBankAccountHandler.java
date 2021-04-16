@@ -145,6 +145,9 @@ public class MasterBankAccountHandler {
     	      for(int i = 0; i < accounts.size(); i++){
     	    	  writer.write(accounts.get(i).toString(isMaster)+ "\n");
     	      }
+    	      if (!isMaster) {
+    	    	  writer.write("00000 END_OF_FILE          D 00000.00");
+    	      }
     	      writer.close();
     	      System.out.println("Wrote to Master Bank account file");
     	      //File cannot be opened to write

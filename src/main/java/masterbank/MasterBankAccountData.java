@@ -130,4 +130,13 @@ public class MasterBankAccountData {
     public int getNumber() {
         return this.number;
     }
+    
+    /**
+     * increment
+     * 
+     * Increments this account's tracked amount of transactions.
+     */
+    public void increment() {
+    	this.totalTransactions += 1;
+    }
 }

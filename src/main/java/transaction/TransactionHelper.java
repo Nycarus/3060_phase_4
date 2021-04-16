@@ -39,6 +39,7 @@ public final class TransactionHelper {
             MasterBankAccountData account = accountHandler.findAccount(transaction.name, transaction.number);
 
             if (account != null) {
+            	account.increment();
                 switch (transaction.code){
                     case 1: //Withdraw
                         if (!changeBalance(account, transaction.funds, "CR")) {
